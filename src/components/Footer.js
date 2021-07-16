@@ -8,7 +8,7 @@ const Footer = ({}) => {
         <div className="footer-credits">
           <p className="footer-copyright">
             © {new Date().getFullYear()}{" "}
-            <Link to={"/"}>Gatsby Starter WordPress Twenty Twenty</Link>
+            <Link to={"/"}>Steward Goods</Link>
           </p>
           <p>
             <a
@@ -16,7 +16,7 @@ const Footer = ({}) => {
               href="https://www.henrikwirth.com"
               rel="noreferrer noopener"
             >
-              Proudly presented by Henrik Wirth
+              Jacob Stephens
             </a>
           </p>
         </div>
