@@ -72,5 +72,22 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Steward Goods Web Design`,
+        short_name: `Steward Goods`,
+        start_url: `/`,
+        background_color: `#F9AC00`, // Orange comb
+        theme_color: `#F8B429`, // Yellow bee
+        display: `standalone`,
+        icon: `static/stewardgoods-icon.png`,
+        icon_options: {
+          purpose: `any maskable`,
+        },
+      },
+    },
+    `gatsby-plugin-offline`,
+
   ],
 }
