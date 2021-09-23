@@ -17,6 +17,7 @@ module.exports = {
   plugins: [
     `gatsby-plugin-image`,
     `gatsby-plugin-notifications`,
+    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-source-filesystem`,
