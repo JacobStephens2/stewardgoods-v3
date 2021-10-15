@@ -3,50 +3,56 @@ import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { StaticQuery, graphql } from "gatsby"
 
-function Seo({ description, lang, meta, keywords, title, socialImage, uri = "", }) {
-
-
+function Seo({
+  description,
+  lang,
+  meta,
+  keywords,
+  title,
+  socialImage,
+  uri = "",
+}) {
   const imageMeta = (siteUrl) =>
-    (siteUrl && socialImage?.localFile)
+    siteUrl && socialImage?.localFile
       ? [
-        {
-          property: "og:image",
-          content: siteUrl + socialImage.localFile.publicURL,
-        },
-        {
-          property: "og:image:width",
-          content: socialImage.mediaDetails.width,
-        },
-        {
-          property: "og:image:height",
-          content: socialImage.mediaDetails.height,
-        },
-        {
-          name: "twitter:image",
-          content: siteUrl + socialImage.localFile.publicURL,
-        },
-        {
-          name: "twitter:image:width",
-          content: socialImage.mediaDetails.width,
-        },
-        {
-          name: "twitter:image:height",
-          content: socialImage.mediaDetails.height,
-        },
-        {
-          name: "twitter:image:alt",
-          content: socialImage.altText,
-        },
-      ]
+          {
+            property: "og:image",
+            content: siteUrl + socialImage.localFile.publicURL,
+          },
+          {
+            property: "og:image:width",
+            content: socialImage.mediaDetails.width,
+          },
+          {
+            property: "og:image:height",
+            content: socialImage.mediaDetails.height,
+          },
+          {
+            name: "twitter:image",
+            content: siteUrl + socialImage.localFile.publicURL,
+          },
+          {
+            name: "twitter:image:width",
+            content: socialImage.mediaDetails.width,
+          },
+          {
+            name: "twitter:image:height",
+            content: socialImage.mediaDetails.height,
+          },
+          {
+            name: "twitter:image:alt",
+            content: socialImage.altText,
+          },
+        ]
       : []
 
   return (
     <StaticQuery
       query={detailsQuery}
       render={(data) => {
-        const {site, wp} = data
+        const { site, wp } = data
 
-        const siteUrl = site.siteMetadata.siteUrl || ""
+        const siteUrl = "https://stewardgoods.com" || ""
 
         const metaDescription =
           description ||
@@ -55,8 +61,7 @@ function Seo({ description, lang, meta, keywords, title, socialImage, uri = "", 
 
         const titleText = title
           ? `${title} | ${
-              wp.generalSettings.description ||
-              site.siteMetadata.title
+              wp.generalSettings.description || site.siteMetadata.title
             }`
           : wp.generalSettings.description || site.siteMetadata.title
 
@@ -69,9 +74,9 @@ function Seo({ description, lang, meta, keywords, title, socialImage, uri = "", 
             titleTemplate={`%s`}
             link={[
               {
-                rel: 'canonical',
-                href: siteUrl + uri
-              }
+                rel: "canonical",
+                href: siteUrl + uri,
+              },
             ]}
             meta={[
               {
@@ -140,7 +145,7 @@ Seo.propTypes = {
   meta: PropTypes.array,
   keywords: PropTypes.arrayOf(PropTypes.string),
   title: PropTypes.string.isRequired,
-  image: PropTypes.object
+  image: PropTypes.object,
 }
 
 const detailsQuery = graphql`
@@ -150,7 +155,6 @@ const detailsQuery = graphql`
         title
         description
         author
-        siteUrl
       }
     }
     wp {
