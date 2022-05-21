@@ -1,2 +1,7 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+src/assets/print.css linguist-vendored
+src/assets/style-old.css linguist-vendored
+src/assets/style-rtl.css linguist-vendored
+src/assets/style-theme.css linguist-vendored
